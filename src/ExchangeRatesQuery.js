@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
@@ -24,11 +23,7 @@ const QUERY = gql`
     }
 `;
 
-class ExchangeRatesQuery extends Component {
-  render() {
-    return this.props.children(this.props.data);
-  }
-}
+const ExchangeRatesQuery = ({ children, data }) => children(data);
 
 export default graphql(QUERY, {
   options: ({
@@ -43,9 +38,9 @@ export default graphql(QUERY, {
 
 ExchangeRatesQuery.propTypes = {
   children: PropTypes.func.isRequired,
-  data: PropTypes.shape(),
-};
-
-ExchangeRatesQuery.defaultProps = {
-  data: {},
+  data: PropTypes.shape().isRequired,
+  sinceDate: PropTypes.string,
+  currency: PropTypes.string.isRequired,
+  referenceCurrency: PropTypes.string.isRequired,
+  amount: PropTypes.string,
 };
