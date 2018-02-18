@@ -1,0 +1,16 @@
+.SalaryForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 1em;
+
+  .currencies {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  input {
+    margin-bottom: 1em;
+  }
+
+};
