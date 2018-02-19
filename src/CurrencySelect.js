@@ -40,8 +40,10 @@ const currencies = [
 const CurrencySelect = ({ placeholder, onChange, id }) => (
   <select id={id} onChange={onChange} defaultValue={0} >
     <option value="0" disabled hidden>{ placeholder }</option>
-    { currencies.map(currency =>
-      <option value={currency.code}>{ currency.flag } { currency.code }</option>)
+    { currencies.map(currency => (
+      <option key={currency.code} value={currency.code}>
+        { currency.flag } { currency.code }
+      </option>))
     }
   </select>
 );
