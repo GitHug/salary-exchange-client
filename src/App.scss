@@ -23,12 +23,14 @@
       grid-area: side;
       background: #34797D;
       color: #ffffff;
+      margin-left: 0.5rem;
     }
 
     & > section {
       grid-area: content;
       background:#39C9CE;
       color: #ffffff;
+      margin-right: 0.5rem;
     }
 
     & > footer {
