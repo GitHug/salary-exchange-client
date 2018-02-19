@@ -15,14 +15,21 @@ class App extends Component {
     return (
       <div className="App">
         <div className="grid">
-          <header>Salary Exchange</header>
+          <header>
+            Salary Exchange
+          </header>
+
           <aside>
             <SalaryForm onSubmit={values => this.setState(values)} />
           </aside>
-          <section>
+
+          <main>
             <ExchangeRateComponent {...this.state} />
-          </section>
-          <footer>footer</footer>
+          </main>
+
+          <footer>
+            footer
+          </footer>
         </div>
       </div>
     );

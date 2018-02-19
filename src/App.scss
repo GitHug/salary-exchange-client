@@ -1,32 +1,68 @@
 .App {
-  height: 100vh;
-  .grid > header {
-    grid-area: hd;
-    background: #34797D;
-    color: #ffffff;
-    height: 50px;
-  }
-
-  .grid > footer {
-    grid-area: ft;
-    background: #34797D;
-    color: #ffffff;
-  }
-
-  .grid > section {
-    grid-area: main;
-    background:#39C9CE;
-    color: #ffffff;
-    height: 400px;
-  }
-
-  .grid > aside {
-    grid-area: sidebar;
-    background: #34797D;
-    color: #ffffff;
-  }
-
   .grid {
+    display: grid;
+
+    grid-template-areas:
+      "header header"
+      "side  content"
+      "footer footer";
+
+    grid-template-columns: 1fr minmax(200px, 2fr);
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+
+    height: 100vh;
+
+    & > header {
+      grid-area: header;
+      background: #34797D;
+      color: #ffffff;
+    }
+
+    & > aside {
+      grid-area: side;
+      background: #34797D;
+      color: #ffffff;
+    }
+
+    & > section {
+      grid-area: content;
+      background:#39C9CE;
+      color: #ffffff;
+    }
+
+    & > footer {
+      grid-area: footer;
+      background: #34797D;
+      color: #ffffff;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-areas:
+        "header"
+        "side"
+        "content"
+        "footer";
+
+      grid-template-columns: 1fr;
+      grid-template-rows:
+        auto /* Header */
+        minmax(75px, auto) /* Sidebar */
+        1fr /* Content */
+        auto; /* Footer */
+    }
+
+    aside {
+      margin: 0;
+    }
+  }
+}
+
+  /*
+  .grid {
+    height: 100%;
     display: grid;
     grid-gap: 1em;
     grid-template-areas:
@@ -45,4 +81,4 @@
         "ft      ft"
     }
   }
-}
+  */
