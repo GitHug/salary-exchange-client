@@ -65,6 +65,7 @@ class SalaryForm extends Component {
           id="salary"
           onChange={this.handleChange}
           pattern="[0-9]*"
+          className="salary"
           value={this.state.salary}
         />
         <input type="submit" value="Submit" disabled={isDisabled()} />

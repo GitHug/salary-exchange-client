@@ -3,14 +3,30 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin: 1em;
+  padding-top: 1em;
 
   .currencies {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 1em;
+
+    .CurrencySelect:first-child {
+      margin-right: 0.5em;
+    }
+
+    .CurrencySelect:nth-child(3) {
+      margin-left: 0.5em;
+    }
+
   }
 
   i.material-icons {
     line-height: 34px;
+    color: #34797D;
+  }
+
+  .salary {
+    margin-bottom: 1em;
   }
 
   input[type="text"] {
@@ -33,6 +49,8 @@
   }
 
   input[type="submit"] {
+    background: #34797D;
+    color: #fff;
     border-radius: 4px;
     border-color: #d9d9d9 #ccc #b3b3b3;
     border: 1px solid #ccc;
