@@ -15,14 +15,19 @@ class SalaryForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
   }
 
   handleChange(event) {
     const value = event.target.validity.valid ?
       event.target.value :
-      this.state[event.target.id];
+      this.state.salary;
 
-    this.setState({ [event.target.id]: value });
+    this.setState({ salary: value });
+  }
+
+  handleChangeCurrency(id, value) {
+    this.setState({ [id]: value });
   }
 
   handleSubmit(event) {
@@ -41,16 +46,18 @@ class SalaryForm extends Component {
         <div className="currencies">
           <CurrencySelect
             id="currency"
-            onChange={this.handleChange}
+            onChange={this.handleChangeCurrency}
             value={this.state.currency}
+            disableValue={this.state.referenceCurrency}
           />
 
           <i className="material-icons">compare_arrows</i>
 
           <CurrencySelect
             id="referenceCurrency"
-            onChange={this.handleChange}
+            onChange={this.handleChangeCurrency}
             value={this.state.referenceCurrency}
+            disableValue={this.state.currency}
           />
         </div>
         <input
