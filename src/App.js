@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SalaryForm from './SalaryForm';
+import SalaryForm from './SalaryFormContainer';
 import ExchangeRateComponent from './ExchangeRateComponent';
 import './App.css';
 

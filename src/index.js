@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
+import store, { history } from './store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import client from './ApolloClient';
 import './index.css';
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <Provider store={store}>
+    <ApolloProvider client={client}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </ApolloProvider>
+  </Provider>,
   document.getElementById('root'),
 );
 registerServiceWorker();

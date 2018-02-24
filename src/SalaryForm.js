@@ -1,81 +1,86 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+
 import CurrencySelect from './CurrencySelect';
+
 import './SalaryForm.css';
 
-class SalaryForm extends Component {
-  constructor(props) {
-    super(props);
+const SalaryForm = ({
+  salary,
+  currency,
+  referenceCurrency,
+  addSalary,
+  changeCurrency,
+  changeReferenceCurrency,
+}) => {
+  const handleChange = (event) => {
+    const { target } = event;
 
-    this.state = {
-      salary: '',
-      currency: '',
-      referenceCurrency: '',
-    };
+    if (target.value.length > 0) {
+      if (event.target.validity.valid) {
+        addSalary(target.value);
+      }
+    } else {
+      addSalary(target.value);
+    }
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
-  }
-
-  handleChange(event) {
-    const value = event.target.validity.valid ?
-      event.target.value :
-      this.state.salary;
-
-    this.setState({ salary: value });
-  }
-
-  handleChangeCurrency(id, value) {
-    this.setState({ [id]: value });
-  }
-
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     this.props.onSubmit(this.state);
     event.preventDefault();
-  }
+  };
 
-  render() {
-    const isDisabled = () => {
-      const { salary, currency, referenceCurrency } = this.state;
-      return !(salary && currency && referenceCurrency);
-    };
+  const isDisabled = () => !(salary && currency && referenceCurrency);
 
-    return (
-      <form className="SalaryForm" onSubmit={this.handleSubmit}>
-        <div className="currencies">
-          <CurrencySelect
-            id="currency"
-            onChange={this.handleChangeCurrency}
-            value={this.state.currency}
-            disableValue={this.state.referenceCurrency}
-          />
-
-          <i className="material-icons">compare_arrows</i>
-
-          <CurrencySelect
-            id="referenceCurrency"
-            onChange={this.handleChangeCurrency}
-            value={this.state.referenceCurrency}
-            disableValue={this.state.currency}
-          />
-        </div>
-        <input
-          type="text"
-          id="salary"
-          onChange={this.handleChange}
-          pattern="[0-9]*"
-          className="salary"
-          value={this.state.salary}
+  return (
+    <form className="SalaryForm" onSubmit={handleSubmit}>
+      <div className="currencies">
+        <CurrencySelect
+          id="currency"
+          onChange={changeCurrency}
+          value={currency}
+          disableValue={referenceCurrency}
         />
-        <input type="submit" value="Submit" disabled={isDisabled()} />
-      </form>
-    );
-  }
-}
+
+        <i className="material-icons">compare_arrows</i>
+
+        <CurrencySelect
+          id="referenceCurrency"
+          onChange={changeReferenceCurrency}
+          value={referenceCurrency}
+          disableValue={currency}
+        />
+      </div>
+      <input
+        type="text"
+        id="salary"
+        onChange={handleChange}
+        pattern="[0-9]*"
+        className="salary"
+        value={salary}
+      />
+      <input type="submit" value="Submit" disabled={isDisabled()} />
+    </form>
+  );
+};
 
 SalaryForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  // onSubmit: PropTypes.func.isRequired,
+  salary: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  currency: PropTypes.string,
+  referenceCurrency: PropTypes.string,
+  addSalary: PropTypes.func.isRequired,
+  changeCurrency: PropTypes.func.isRequired,
+  changeReferenceCurrency: PropTypes.func.isRequired,
+};
+
+SalaryForm.defaultProps = {
+  salary: 0,
+  currency: '',
+  referenceCurrency: '',
 };
 
 export default SalaryForm;

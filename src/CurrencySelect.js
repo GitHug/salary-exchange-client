@@ -47,7 +47,7 @@ const CurrencySelect = ({
     id={id}
     name={id}
     value={value}
-    onChange={val => onChange(id, val && val.value)}
+    onChange={val => onChange(val.value)}
     className="CurrencySelect"
     placeholder={placeholder}
     options={currencies
