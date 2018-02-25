@@ -12,6 +12,7 @@ const SalaryForm = ({
   addSalary,
   changeCurrency,
   changeReferenceCurrency,
+  fetchExchangeRates,
 }) => {
   const handleChangeSalary = (event) => {
     const { target } = event;
@@ -26,7 +27,7 @@ const SalaryForm = ({
   };
 
   const handleSubmit = (event) => {
-    this.props.onSubmit(this.state);
+    fetchExchangeRates();
     event.preventDefault();
   };
 
@@ -65,7 +66,6 @@ const SalaryForm = ({
 };
 
 SalaryForm.propTypes = {
-  // onSubmit: PropTypes.func.isRequired,
   salary: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -75,6 +75,7 @@ SalaryForm.propTypes = {
   addSalary: PropTypes.func.isRequired,
   changeCurrency: PropTypes.func.isRequired,
   changeReferenceCurrency: PropTypes.func.isRequired,
+  fetchExchangeRates: PropTypes.func.isRequired,
 };
 
 SalaryForm.defaultProps = {

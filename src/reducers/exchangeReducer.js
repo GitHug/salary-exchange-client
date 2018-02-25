@@ -1,11 +1,15 @@
 import * as actions from '../actions/exchangeActions';
 
-const initialState = {
+const form = {
   salary: 5000,
   currency: 'EUR',
   referenceCurrency: 'USD',
-  exchangeRatesRequested: false,
-  exchangeRates: [],
+};
+const initialState = {
+  form,
+  fetchData: {
+    ...form,
+  },
 };
 
 export default (state = initialState, action) => {
@@ -13,28 +17,34 @@ export default (state = initialState, action) => {
     case actions.CHANGE_CURRENCY:
       return {
         ...state,
-        currency: action.payload.currency,
+        form: {
+          ...state.form,
+          currency: action.payload.currency,
+        },
       };
     case actions.CHANGE_REFERENCE_CURRENCY:
       return {
         ...state,
-        referenceCurrency: action.payload.currency,
+        form: {
+          ...state.form,
+          referenceCurrency: action.payload.currency,
+        },
       };
     case actions.ADD_SALARY:
       return {
         ...state,
-        salary: action.payload.salary,
+        form: {
+          ...state.form,
+          salary: action.payload.salary,
+        },
       };
-    case actions.EXCHANGE_RATES_REQUESTED:
+
+    case actions.FETCH_EXCHANGE_RATES:
       return {
         ...state,
-        exchangeRatesRequested: true,
-      };
-    case actions.EXCHANGE_RATES_RETRIEVED:
-      return {
-        ...state,
-        exchangeRates: action.payload.exchangeRates,
-        exchangeRatesRequested: false,
+        fetchData: {
+          ...state.form,
+        },
       };
     default:
       return state;

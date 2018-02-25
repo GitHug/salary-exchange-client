@@ -37,7 +37,13 @@ const QUERY = gql`
 
 ExchangeRateComponent.propTypes = {
   data: PropTypes.shape({
-    exchangeRates: PropTypes.shape(),
+    exchangeRates: PropTypes.arrayOf(PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+      referenceCurrency: PropTypes.string.isRequired,
+      exchangeRate: PropTypes.number.isRequired,
+      totalAmountExchangeRate: PropTypes.number.isRequired,
+    })),
   }).isRequired,
 };
 

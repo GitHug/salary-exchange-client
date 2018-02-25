@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import ExchangeRateComponent from './ExchangeRateComponent';
 
 
-const mapStateToProps = ({ exchange: { currency, referenceCurrency, salary } }) => ({
+const mapStateToProps = ({ exchange: { fetchData: { currency, referenceCurrency, salary } } }) => ({
   currency,
   referenceCurrency,
   salary,
