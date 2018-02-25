@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SalaryForm from './SalaryFormContainer';
-import ExchangeRateComponent from './ExchangeRateComponent';
+import ExchangeRateComponent from './ExchangeRateContainer';
 import './App.css';
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
           </aside>
 
           <main>
-            <ExchangeRateComponent {...this.state} />
+            <ExchangeRateComponent />
           </main>
 
           <footer>

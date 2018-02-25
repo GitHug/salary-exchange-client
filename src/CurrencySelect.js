@@ -47,9 +47,10 @@ const CurrencySelect = ({
     id={id}
     name={id}
     value={value}
-    onChange={val => onChange(val.value)}
+    onChange={val => onChange(val && val.value)}
     className="CurrencySelect"
     placeholder={placeholder}
+    clearable={false}
     options={currencies
       .filter(currency => currency.code !== disableValue)
       .map(currency =>

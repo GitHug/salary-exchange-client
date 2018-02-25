@@ -1,33 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ExchangeRatesQuery from './ExchangeRatesQuery';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import ExchangeRateChart from './ExchangeRateChart';
 
 const ExchangeRateComponent = ({
-  currency, referenceCurrency, salary, sinceDate,
+  data: { exchangeRates, loading },
 }) => (
-  <ExchangeRatesQuery
-    sinceDate={sinceDate}
-    currency={currency}
-    referenceCurrency={referenceCurrency}
-    amount={salary}
-  >
-    {({ exchangeRates }) => <ExchangeRateChart exchangeRates={exchangeRates} />}
-  </ExchangeRatesQuery>
+  <div>
+    {loading ?
+      <span>Loading...</span>
+      : <ExchangeRateChart exchangeRates={exchangeRates} />}
+  </div>
 );
 
+const QUERY = gql`
+  query exchangeRatesQuery(
+    $sinceDate: String
+    $currency: String!
+    $referenceCurrency: String!
+    $amount: Float) {
+      exchangeRates(
+        sinceDate: $sinceDate,
+        currency: $currency,
+        referenceCurrency: $referenceCurrency,
+        amount: $amount
+      ) {
+        date
+        currency
+        referenceCurrency
+        exchangeRate
+        totalAmountExchangeRate
+      }
+    }
+`;
+
 ExchangeRateComponent.propTypes = {
-  currency: PropTypes.string,
-  referenceCurrency: PropTypes.string,
-  salary: PropTypes.string,
-  sinceDate: PropTypes.string,
+  data: PropTypes.shape({
+    exchangeRates: PropTypes.shape(),
+  }).isRequired,
 };
 
-ExchangeRateComponent.defaultProps = {
-  currency: 'USD',
-  referenceCurrency: 'GBP',
-  salary: '50000',
-  sinceDate: '2018-01-01',
-};
+export default graphql(QUERY, {
+  options: ({ currency, referenceCurrency, salary }) =>
+    ({
+      variables: {
+        currency,
+        referenceCurrency,
+        amount: salary || 1,
+      },
+    }),
+})(ExchangeRateComponent);
 
-export default ExchangeRateComponent;

@@ -13,7 +13,7 @@ const SalaryForm = ({
   changeCurrency,
   changeReferenceCurrency,
 }) => {
-  const handleChange = (event) => {
+  const handleChangeSalary = (event) => {
     const { target } = event;
 
     if (target.value.length > 0) {
@@ -54,7 +54,7 @@ const SalaryForm = ({
       <input
         type="text"
         id="salary"
-        onChange={handleChange}
+        onChange={handleChangeSalary}
         pattern="[0-9]*"
         className="salary"
         value={salary}
