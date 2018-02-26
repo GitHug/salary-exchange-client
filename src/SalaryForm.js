@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import CurrencySelect from './CurrencySelect';
+import RadioButton from './RadioButton';
 
 import './SalaryForm.css';
 
@@ -60,6 +60,28 @@ const SalaryForm = ({
         className="salary"
         value={salary}
       />
+
+      <div className="button-panel">
+        <RadioButton name="period" id="1month" value="1month">
+        1m
+        </RadioButton>
+        <RadioButton name="period" id="3months" value="3months">
+        3m
+        </RadioButton>
+        <RadioButton name="period" id="6months" value="6months">
+        6m
+        </RadioButton>
+        <RadioButton name="period" id="1year" value="1year">
+        1y
+        </RadioButton>
+        <RadioButton name="period" id="3years" value="3years">
+        3y
+        </RadioButton>
+        <RadioButton name="period" id="all" value="all">
+        All
+        </RadioButton>
+      </div>
+
       <input type="submit" value="Submit" disabled={isDisabled()} />
     </form>
   );
