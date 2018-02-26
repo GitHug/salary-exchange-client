@@ -4,6 +4,7 @@ const form = {
   salary: 5000,
   currency: 'EUR',
   referenceCurrency: 'USD',
+  period: '3months',
 };
 const initialState = {
   form,
@@ -38,7 +39,15 @@ export default (state = initialState, action) => {
           salary: action.payload.salary,
         },
       };
-
+    case actions.CHANGE_PERIOD: {
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          period: action.payload.period,
+        },
+      };
+    }
     case actions.FETCH_EXCHANGE_RATES:
       return {
         ...state,
