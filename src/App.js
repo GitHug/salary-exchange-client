@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SalaryForm from './SalaryFormContainer';
 import ExchangeRateComponent from './ExchangeRateContainer';
+import SideBar from './SideBar';
 import './App.css';
 
 class App extends Component {
@@ -19,9 +19,7 @@ class App extends Component {
             Salary Exchange
           </header>
 
-          <aside>
-            <SalaryForm onSubmit={values => this.setState(values)} />
-          </aside>
+          <SideBar />
 
           <main>
             <ExchangeRateComponent />
