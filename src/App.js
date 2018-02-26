@@ -1,38 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ExchangeRateComponent from './ExchangeRateContainer';
 import SideBar from './SideBar';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => (
 
-    this.state = { };
-  }
-
-
-  render() {
-    return (
-      <div className="App">
-        <div className="grid">
-          <header>
+  <div className="App">
+    <div className="grid">
+      <header>
             Salary Exchange
-          </header>
+      </header>
 
-          <SideBar />
+      <SideBar />
 
-          <main>
-            <ExchangeRateComponent />
-          </main>
+      <main>
+        <ExchangeRateComponent />
+      </main>
 
-          <footer>
+      <footer>
             footer
-          </footer>
-        </div>
-      </div>
-    );
-  }
-}
+      </footer>
+    </div>
+  </div>
+);
 
 
 export default App;
