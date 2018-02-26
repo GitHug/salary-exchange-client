@@ -3,7 +3,7 @@ import SalaryForm from './SalaryFormContainer';
 
 const SideBar = () => (
   <aside>
-    <SalaryForm onSubmit={values => this.setState(values)} />
+    <SalaryForm />
   </aside>
 );
 
