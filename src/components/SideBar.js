@@ -1,5 +1,5 @@
 import React from 'react';
-import SalaryForm from './SalaryFormContainer';
+import SalaryForm from '../containers/SalaryFormContainer';
 
 const SideBar = () => (
   <aside>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ExchangeRateComponent from './ExchangeRateComponent';
+import ExchangeRateComponent from '../components/ExchangeRateComponent';
 
 
 const mapStateToProps = ({

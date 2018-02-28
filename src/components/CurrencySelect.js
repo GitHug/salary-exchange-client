@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import './CurrencySelect.css';
+import '../styles/CurrencySelect.css';
 
 const currencies = [
   { flag: '🇪🇺', code: 'EUR' },

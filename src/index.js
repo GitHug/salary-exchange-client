@@ -6,8 +6,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import client from './ApolloClient';
-import './index.css';
+import client from './apolloClient';
+import './styles/index.css';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './RadioButton.css';
+import '../styles/RadioButton.css';
 
 const RadioButton = ({
   name, id, checkedValue, onChange, children,

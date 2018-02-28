@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CurrencySelect from './CurrencySelect';
-import RadioButtonPanel from './RadioButtonPanelContainer';
+import RadioButtonPanel from '../containers/RadioButtonPanelContainer';
 
-import './SalaryForm.css';
+import '../styles/SalaryForm.css';
 
 const SalaryForm = ({
   salary,

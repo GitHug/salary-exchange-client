@@ -1,7 +1,7 @@
 import React from 'react';
-import ExchangeRateComponent from './ExchangeRateContainer';
-import SideBar from './SideBar';
-import './App.css';
+import ExchangeRateComponent from './containers/ExchangeRateContainer';
+import SideBar from './components/SideBar';
+import './styles/App.css';
 
 const App = () => (
 

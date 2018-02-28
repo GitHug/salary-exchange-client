@@ -4,9 +4,9 @@ import {
   changeCurrency,
   changeReferenceCurrency,
   addSalary,
-} from './actions/exchangeActions';
+} from '../actions/exchangeActions';
 
-import SalaryForm from './SalaryForm';
+import SalaryForm from '../components/SalaryForm';
 
 const mapStateToProps = ({ exchange: { currency, referenceCurrency, salary } }) => ({
   currency,
