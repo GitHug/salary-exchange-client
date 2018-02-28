@@ -5,12 +5,13 @@ import gql from 'graphql-tag';
 import ExchangeRateChart from './ExchangeRateChart';
 
 const ExchangeRateComponent = ({
+  ...rest,
   data: { exchangeRates, loading },
 }) => (
   <div>
     {loading ?
       <span>Loading...</span>
-      : <ExchangeRateChart exchangeRates={exchangeRates} />}
+      : <ExchangeRateChart exchangeRates={exchangeRates} {...rest} />}
   </div>
 );
 
