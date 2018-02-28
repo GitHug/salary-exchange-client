@@ -35,7 +35,7 @@ const SalaryForm = ({
           disableValue={referenceCurrency}
         />
 
-        <i className="material-icons">compare_arrows</i>
+        <span className="icon" role="img" aria-label="icon">💱</span>
 
         <CurrencySelect
           id="referenceCurrency"
