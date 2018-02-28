@@ -16,12 +16,12 @@ const ExchangeRateComponent = ({
 
 const QUERY = gql`
   query exchangeRatesQuery(
-    $sinceDate: String
+    $period: Period!
     $currency: String!
     $referenceCurrency: String!
     $amount: Float) {
       exchangeRates(
-        sinceDate: $sinceDate,
+        period: $period,
         currency: $currency,
         referenceCurrency: $referenceCurrency,
         amount: $amount
@@ -48,11 +48,17 @@ ExchangeRateComponent.propTypes = {
 };
 
 export default graphql(QUERY, {
-  options: ({ currency, referenceCurrency, salary }) =>
+  options: ({
+    currency,
+    referenceCurrency,
+    salary,
+    period,
+  }) =>
     ({
       variables: {
         currency,
         referenceCurrency,
+        period,
         amount: salary || 1,
       },
     }),

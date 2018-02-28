@@ -4,7 +4,7 @@ const form = {
   salary: 5000,
   currency: 'EUR',
   referenceCurrency: 'USD',
-  period: '3months',
+  period: 'THREE_MONTHS',
 };
 const initialState = {
   form,
