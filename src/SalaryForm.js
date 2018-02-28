@@ -12,7 +12,6 @@ const SalaryForm = ({
   addSalary,
   changeCurrency,
   changeReferenceCurrency,
-  fetchExchangeRates,
 }) => {
   const handleChangeSalary = (event) => {
     const { target } = event;
@@ -26,15 +25,8 @@ const SalaryForm = ({
     }
   };
 
-  const handleSubmit = (event) => {
-    fetchExchangeRates();
-    event.preventDefault();
-  };
-
-  const isDisabled = () => !(salary && currency && referenceCurrency);
-
   return (
-    <form className="SalaryForm" onSubmit={handleSubmit}>
+    <div className="SalaryForm">
       <div className="currencies">
         <CurrencySelect
           id="currency"
@@ -62,9 +54,7 @@ const SalaryForm = ({
       />
 
       <RadioButtonPanel />
-
-      <input type="submit" value="Submit" disabled={isDisabled()} />
-    </form>
+    </div>
   );
 };
 
@@ -78,7 +68,6 @@ SalaryForm.propTypes = {
   addSalary: PropTypes.func.isRequired,
   changeCurrency: PropTypes.func.isRequired,
   changeReferenceCurrency: PropTypes.func.isRequired,
-  fetchExchangeRates: PropTypes.func.isRequired,
 };
 
 SalaryForm.defaultProps = {

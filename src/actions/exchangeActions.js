@@ -1,7 +1,6 @@
 export const CHANGE_CURRENCY = 'exchange/CHANGE_CURRENCY';
 export const CHANGE_REFERENCE_CURRENCY = 'exchange/CHANGE_REFERENCE_CURRENCY';
 export const ADD_SALARY = 'exchange/ADD_SALARY';
-export const FETCH_EXCHANGE_RATES = 'exchange/EXCHANGE_RATES_REQUESTED';
 export const CHANGE_PERIOD = 'exchange/CHANGE_PERIOD';
 
 export const changeCurrency = currency => dispatch =>
@@ -27,12 +26,6 @@ export const addSalary = salary => dispatch =>
       salary,
     },
   });
-
-export const fetchExchangeRates = () => dispatch =>
-  dispatch({
-    type: FETCH_EXCHANGE_RATES,
-  });
-
 
 export const changePeriod = period => dispatch =>
   dispatch({

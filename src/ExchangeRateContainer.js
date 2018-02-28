@@ -4,12 +4,10 @@ import ExchangeRateComponent from './ExchangeRateComponent';
 
 const mapStateToProps = ({
   exchange: {
-    fetchData: {
-      currency,
-      referenceCurrency,
-      salary,
-      period,
-    },
+    currency,
+    referenceCurrency,
+    salary,
+    period,
   },
 }) => ({
   currency,

@@ -4,7 +4,7 @@ import { changePeriod } from './actions/exchangeActions';
 
 import RadioButtonPanel from './RadioButtonPanel';
 
-const mapStateToProps = ({ exchange: { form: { period } } }) => ({
+const mapStateToProps = ({ exchange: { period } }) => ({
   period,
 });
 
