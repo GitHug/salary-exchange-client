@@ -1,86 +1,46 @@
 .App {
-  .grid {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media (min-width: 768px) {
     display: grid;
-
-    grid-template-areas:
-      "header header"
-      "side  content"
-      "footer footer";
-
-    grid-template-columns: 1fr minmax(200px, 2fr);
+    grid-template-columns: 400px 1fr;
     grid-template-rows: auto 1fr auto;
-    grid-gap: 10px;
-
-    height: 100vh;
-
-    & > header {
-      grid-area: header;
-      background: #34797D;
-      color: #ffffff;
-    }
-
-    & > aside {
-      grid-area: side;
-      background: #F8F8F8;
-      color: #ffffff;
-      margin-left: 0.5rem;
-    }
-
-    & > section {
-      grid-area: content;
-      background:#F8F8F8;
-      color: #ffffff;
-      margin-right: 0.5rem;
-    }
-
-    & > footer {
-      grid-area: footer;
-      background: #F8F8F8;
-      color: #ffffff;
-    }
   }
 
-  @media (max-width: 640px) {
-    .grid {
-      grid-template-areas:
-        "header"
-        "side"
-        "content"
-        "footer";
+  header {
+    grid-column: span 3;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.4em;
+    background-color: #333333;
+    color: white;
+  }
 
-      grid-template-columns: 1fr;
-      grid-template-rows:
-        auto /* Header */
-        minmax(75px, auto) /* Sidebar */
-        1fr /* Content */
-        auto; /* Footer */
-    }
+  main {
+    grid-column: span 2;
+    flex: 1;
+    padding: 20px;
+  }
 
-    aside {
-      margin: 0;
-    }
+  aside {
+    padding: 20px;
+  }
+
+  footer {
+    grid-column: span 3;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.4em;
+    background-color: #FDFDFD;
+    color: #333333;
+    border-top: 1px solid lightgrey;
+  }
+
+  h1 {
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: bold;
   }
 }
-
-  /*
-  .grid {
-    height: 100%;
-    display: grid;
-    grid-gap: 1em;
-    grid-template-areas:
-      "hd"
-      "sidebar"
-      "main"
-      "ft"
-  }
-
-  @media (min-width: 640px) {
-    .grid {
-      grid-template-columns: 2fr 4fr;
-      grid-template-areas:
-        "hd      hd"
-        "sidebar main"
-        "ft      ft"
-    }
-  }
-  */

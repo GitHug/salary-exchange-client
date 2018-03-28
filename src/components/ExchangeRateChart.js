@@ -27,6 +27,9 @@ const createConfig = (exchangeRates, salary, currency, referenceCurrency) => {
         return `Salary at <b>${this.x}</b> is <b>${this.y.toFixed(2)} ${referenceCurrency}</b>.`;
       },
     },
+    chart: {
+      height: `${((9 / 16) * 100)}%`,
+    },
   };
 };
 
