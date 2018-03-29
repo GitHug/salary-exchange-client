@@ -7,6 +7,7 @@ const client = new ApolloClient({
   //  `/graphql` endpoint on the same host
   // Pass the configuration option { uri: YOUR_GRAPHQL_API_URL } to the `HttpLink` to connect
   // to a different host
+  uri: process.env.REACT_APP_API || 'localhost:4000/graphql',
   link: new HttpLink(),
   cache: new InMemoryCache(),
 });
