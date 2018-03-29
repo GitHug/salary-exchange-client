@@ -21,6 +21,7 @@ const createConfig = (exchangeRates, salary, currency, referenceCurrency) => {
     series: [{
       name: 'Salary',
       data,
+      color: '#3A9FBF',
     }],
     tooltip: {
       formatter() {
