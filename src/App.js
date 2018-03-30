@@ -12,7 +12,15 @@ const App = () => (
     <main>
       <ExchangeRateComponent />
     </main>
-    <footer>footer</footer>
+    <footer>
+      <a
+        href="https://github.com/GitHug/salary-exchange-client"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="GitHub-Mark-64px.png" alt="Github repo" />
+      </a>
+    </footer>
   </div>
 );
 
