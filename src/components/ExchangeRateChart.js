@@ -21,11 +21,15 @@ const createConfig = (exchangeRates, salary, currency, referenceCurrency) => {
     series: [{
       name: 'Salary',
       data,
+      color: '#3A9FBF',
     }],
     tooltip: {
       formatter() {
         return `Salary at <b>${this.x}</b> is <b>${this.y.toFixed(2)} ${referenceCurrency}</b>.`;
       },
+    },
+    chart: {
+      height: `${((9 / 16) * 100)}%`,
     },
   };
 };
