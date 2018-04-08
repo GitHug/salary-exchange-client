@@ -28,6 +28,10 @@ header.Header {
       padding: 0.25em;
       border-radius: 4px;
       border: 1px solid #ccc;
+
+      &:hover {
+        background: #409FBE;
+      }
     }
   }
 }
