@@ -1,0 +1,16 @@
+section.Main {
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  main {
+    flex: 1;
+    padding: 20px;
+  }
+
+  aside {
+    padding: 20px;
+  }
+}

@@ -3,22 +3,11 @@
   flex-direction: column;
   min-height: 100vh;
 
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    grid-template-rows: auto 1fr auto;
-  }
-  main {
-    grid-column: span 2;
-    flex: 1;
-    padding: 20px;
-  }
-
-  aside {
-    padding: 20px;
-  }
-
   footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     grid-column: span 3;
     padding: 30px;
     text-align: center;
