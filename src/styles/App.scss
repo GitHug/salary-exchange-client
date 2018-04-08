@@ -8,16 +8,6 @@
     grid-template-columns: 400px 1fr;
     grid-template-rows: auto 1fr auto;
   }
-
-  header {
-    grid-column: span 3;
-    padding: 30px;
-    text-align: center;
-    font-size: 1.4em;
-    background-color: #333333;
-    color: white;
-  }
-
   main {
     grid-column: span 2;
     flex: 1;

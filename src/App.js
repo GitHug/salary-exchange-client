@@ -2,10 +2,11 @@ import React from 'react';
 import ExchangeRateComponent from './containers/ExchangeRateContainer';
 import SalaryForm from './containers/SalaryFormContainer';
 import './styles/App.css';
+import Header from './components/Header';
 
 const App = () => (
   <div className="App">
-    <header>Salary Exchange</header>
+    <Header />
     <aside>
       <SalaryForm />
     </aside>
