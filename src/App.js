@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router';
 import { Switch } from 'react-router-dom';
-import './styles/App.css';
+
 import Header from './components/Header';
-import Main from './components/Main';
-import About from './components/About';
-import NotFoundPage404 from './components/NotFoundPage404';
+import Main from './views/main/Main';
+import About from './views/about/About';
+import NotFound from './views/notfound/NotFound';
+
+import './styles/App.css';
 
 const App = () => (
   <div className="App">
@@ -13,7 +15,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Main} />
       <Route path="/about" component={About} />
-      <Route path="/404" component={NotFoundPage404} />
+      <Route path="/404" component={NotFound} />
       <Redirect from="*" to="/404" />
     </Switch>
     <footer>

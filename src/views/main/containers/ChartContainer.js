@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ExchangeRateComponent from '../components/ExchangeRateComponent';
+import Chart from '../components/chart/Chart';
 
 
 const mapStateToProps = ({
@@ -16,4 +16,4 @@ const mapStateToProps = ({
   period,
 });
 
-export default connect(mapStateToProps)(ExchangeRateComponent);
+export default connect(mapStateToProps)(Chart);

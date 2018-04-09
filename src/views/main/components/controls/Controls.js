@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CurrencySelect from './CurrencySelect';
-import RadioButtonPanel from '../containers/RadioButtonPanelContainer';
+import CurrencySelect from './components/CurrencySelect';
+import RadioButtonPanel from './containers/RadioButtonPanelContainer';
 
-import '../styles/SalaryForm.css';
+import './styles/Controls.css';
 
-const SalaryForm = ({
+const Controls = ({
   salary,
   currency,
   referenceCurrency,
@@ -26,7 +26,7 @@ const SalaryForm = ({
   };
 
   return (
-    <div className="SalaryForm">
+    <div className="Controls">
       <div className="currencies">
         <CurrencySelect
           id="currency"
@@ -58,7 +58,7 @@ const SalaryForm = ({
   );
 };
 
-SalaryForm.propTypes = {
+Controls.propTypes = {
   salary: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -70,10 +70,10 @@ SalaryForm.propTypes = {
   changeReferenceCurrency: PropTypes.func.isRequired,
 };
 
-SalaryForm.defaultProps = {
+Controls.defaultProps = {
   salary: 0,
   currency: '',
   referenceCurrency: '',
 };
 
-export default SalaryForm;
+export default Controls;

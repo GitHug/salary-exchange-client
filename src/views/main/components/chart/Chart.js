@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import ExchangeRateChart from './ExchangeRateChart';
+import HighChartsWrapper from './components/HighChartsWrapper';
 
-const ExchangeRateComponent = ({
+const Chart = ({
   ...rest,
   data: { exchangeRates, loading },
 }) => (
   <div>
     {loading ?
       <span>Loading...</span>
-      : <ExchangeRateChart exchangeRates={exchangeRates} {...rest} />}
+      : <HighChartsWrapper exchangeRates={exchangeRates} {...rest} />}
   </div>
 );
 
@@ -36,7 +36,7 @@ const QUERY = gql`
     }
 `;
 
-ExchangeRateComponent.propTypes = {
+Chart.propTypes = {
   data: PropTypes.shape({
     exchangeRates: PropTypes.arrayOf(PropTypes.shape({
       date: PropTypes.string.isRequired,
@@ -63,5 +63,5 @@ export default graphql(QUERY, {
         amount: salary || 1,
       },
     }),
-})(ExchangeRateComponent);
+})(Chart);
 

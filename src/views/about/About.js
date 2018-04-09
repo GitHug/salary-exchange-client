@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/About.css';
+import './styles/About.css';
 
 export default () => (
   <div className="About">
