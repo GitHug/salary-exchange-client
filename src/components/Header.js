@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import '../styles/Header.css';
 
 export default () => (
   <header className="Header">
-    <a href="/" className="title">
+    <Link to="/" className="title">
       <Logo />
       <h1>Salary Exchange</h1>
-    </a>
+    </Link>
     <nav>
-      <a href="/">About</a>
+      <Link to="/about">About</Link>
     </nav>
   </header>
 );
