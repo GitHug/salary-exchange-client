@@ -22,7 +22,9 @@ const App = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="GitHub-Mark-64px.png" alt="Github repo" />
+        <div>
+          <img src="GitHub-Mark-64px.png" alt="Github repo" />
+        </div>
       </a>
     </footer>
   </div>
