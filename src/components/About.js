@@ -4,7 +4,7 @@ import '../styles/About.css';
 
 export default () => (
   <div className="About">
-    <h1>What is this all about?</h1>
+    <h1>What is this thing?</h1>
 
     <p>As someone who is currently living abroad, but still get my salary paid
       in the currency of my home country, I often wonder how much my buying power
