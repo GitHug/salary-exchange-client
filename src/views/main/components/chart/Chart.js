@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import HighChartsWrapper from './components/HighChartsWrapper';
+import './styles/Chart.css';
 
 const Chart = ({
   ...rest,
   data: { exchangeRates, loading },
 }) => (
-  <div>
+  <div className="Chart">
     {loading ?
       <span>Loading...</span>
       : <HighChartsWrapper exchangeRates={exchangeRates} {...rest} />}
