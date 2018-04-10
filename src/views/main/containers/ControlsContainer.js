@@ -4,6 +4,7 @@ import {
   changeCurrency,
   changeReferenceCurrency,
   addSalary,
+  swapCurrency,
 } from '../../../actions/exchangeActions';
 
 import SalaryForm from '../components/controls/Controls';
@@ -18,6 +19,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   changeCurrency: currency => changeCurrency(currency),
   changeReferenceCurrency: currency => changeReferenceCurrency(currency),
   addSalary: salary => addSalary(salary),
+  swap: () => swapCurrency(),
 }, dispatch);
 
 export default connect(

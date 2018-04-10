@@ -20,15 +20,22 @@
       margin-left: 0.5em;
     }
 
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      span.icon {
+        font-size: 24px;
+        line-height: 34px;
+        color: transparent;
+        text-shadow: 0 0 0 #3A9FBF;
+      }
+    }
+
   }
 
-  span.icon {
-    font-size: 24px;
-    line-height: 34px;
-    color: transparent;
-    text-shadow: 0 0 0 #3A9FBF;
-    cursor: default;
-  }
+
 
   .salary {
     margin-bottom: 1em;

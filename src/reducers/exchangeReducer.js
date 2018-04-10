@@ -19,6 +19,12 @@ export default (state = initialState, action) => {
         ...state,
         referenceCurrency: action.payload.currency,
       };
+    case actions.SWAP_CURRENCY:
+      return {
+        ...state,
+        currency: state.referenceCurrency,
+        referenceCurrency: state.currency,
+      };
     case actions.ADD_SALARY:
       return {
         ...state,

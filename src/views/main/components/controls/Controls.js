@@ -12,6 +12,7 @@ const Controls = ({
   addSalary,
   changeCurrency,
   changeReferenceCurrency,
+  swap,
 }) => {
   const handleChangeSalary = (event) => {
     const { target } = event;
@@ -34,8 +35,14 @@ const Controls = ({
           value={currency}
           disableValue={referenceCurrency}
         />
-
-        <span className="icon" role="img" aria-label="icon">💱</span>
+        <button onClick={() => swap()}>
+          <span
+            className="icon"
+            role="img"
+            aria-label="icon"
+          >💱
+          </span>
+        </button>
 
         <CurrencySelect
           id="referenceCurrency"
@@ -68,6 +75,7 @@ Controls.propTypes = {
   addSalary: PropTypes.func.isRequired,
   changeCurrency: PropTypes.func.isRequired,
   changeReferenceCurrency: PropTypes.func.isRequired,
+  swap: PropTypes.func.isRequired,
 };
 
 Controls.defaultProps = {
