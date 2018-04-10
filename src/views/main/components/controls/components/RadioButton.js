@@ -5,19 +5,17 @@ import '../styles/RadioButton.css';
 const RadioButton = ({
   name, id, checkedValue, onChange, children,
 }) => (
-  <div className="RadioButton">
-    <label htmlFor={id}>
-      <input
-        type="radio"
-        id={id}
-        name={name}
-        value={id}
-        checked={checkedValue === id}
-        onChange={() => onChange(id)}
-      />
-      <span>{children}</span>
-    </label>
-  </div>
+  <label htmlFor={id} className="RadioButton">
+    <input
+      type="radio"
+      id={id}
+      name={name}
+      value={id}
+      checked={checkedValue === id}
+      onChange={() => onChange(id)}
+    />
+    <span>{children}</span>
+  </label>
 );
 
 RadioButton.propTypes = {
