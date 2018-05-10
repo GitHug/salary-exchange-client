@@ -5,11 +5,11 @@ section.Main {
     grid-template-rows: auto 1fr auto;
 
     main {
-      padding: 20px 20px 20px 10px !important;
+      padding: 20px 20px 20px 5px !important;
     }
 
     aside {
-      padding: 20px 10px 20px 20px !important;
+      padding: 20px 5px 20px 20px !important;
     }
   }
 
@@ -20,5 +20,17 @@ section.Main {
 
   aside {
     padding: 20px 20px 10px 20px;
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 160px 500px;
+    grid-gap: 0.5em;
+
+    .Card.chart-card {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
   }
 }

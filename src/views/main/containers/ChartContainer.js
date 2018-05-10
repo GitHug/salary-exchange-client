@@ -4,14 +4,14 @@ import Chart from '../components/chart/Chart';
 
 const mapStateToProps = ({
   exchange: {
-    currency,
-    referenceCurrency,
+    currencyFrom,
+    currencyTo,
     salary,
     period,
   },
 }) => ({
-  currency,
-  referenceCurrency,
+  currencyFrom,
+  currencyTo,
   salary,
   period,
 });

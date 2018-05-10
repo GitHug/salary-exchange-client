@@ -2,8 +2,8 @@ import * as actions from '../actions/exchangeActions';
 
 const initialState = {
   salary: 5000,
-  currency: 'EUR',
-  referenceCurrency: 'USD',
+  currencyFrom: 'EUR',
+  currencyTo: 'USD',
   period: 'THREE_MONTHS',
 };
 
@@ -12,18 +12,18 @@ export default (state = initialState, action) => {
     case actions.CHANGE_CURRENCY:
       return {
         ...state,
-        currency: action.payload.currency,
+        currencyFrom: action.payload.currency,
       };
     case actions.CHANGE_REFERENCE_CURRENCY:
       return {
         ...state,
-        referenceCurrency: action.payload.currency,
+        currencyTo: action.payload.currency,
       };
     case actions.SWAP_CURRENCY:
       return {
         ...state,
-        currency: state.referenceCurrency,
-        referenceCurrency: state.currency,
+        currencyFrom: state.currencyTo,
+        currencyTo: state.currencyFrom,
       };
     case actions.ADD_SALARY:
       return {

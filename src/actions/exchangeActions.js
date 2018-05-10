@@ -4,7 +4,7 @@ export const ADD_SALARY = 'exchange/ADD_SALARY';
 export const CHANGE_PERIOD = 'exchange/CHANGE_PERIOD';
 export const SWAP_CURRENCY = 'exchange/SWAP_CURRENCY';
 
-export const changeCurrency = currency => dispatch =>
+export const changeCurrencyFrom = currency => dispatch =>
   dispatch({
     type: CHANGE_CURRENCY,
     payload: {
@@ -12,7 +12,7 @@ export const changeCurrency = currency => dispatch =>
     },
   });
 
-export const changeReferenceCurrency = currency => dispatch =>
+export const changeCurrencyTo = currency => dispatch =>
   dispatch({
     type: CHANGE_REFERENCE_CURRENCY,
     payload: {

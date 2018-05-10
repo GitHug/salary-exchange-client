@@ -2,42 +2,52 @@ import React from 'react';
 import ReactHighCharts from 'react-highcharts';
 import PropTypes from 'prop-types';
 
-const createConfig = (exchangeRates, salary, currency, referenceCurrency) => {
+const createConfig = (exchangeRates, currencyFrom, currencyTo) => {
   const categories = exchangeRates.map(rate => rate.date);
-  const data = exchangeRates.map(rate => rate.totalAmountExchangeRate);
+  const data = exchangeRates.map(rate => rate.exchangeRate);
 
   return {
     title: {
-      text: `${salary} ${currency} in ${referenceCurrency}`,
+      text: `Exchange rate for ${currencyFrom} in ${currencyTo}`,
+      style: {
+        color: '#FFFFFF',
+      },
     },
     yAxis: {
       title: {
-        text: 'Salary',
+        text: 'Exchange rate',
+        style: {
+          color: '#666666',
+        },
       },
     },
     xAxis: {
       categories,
     },
     series: [{
-      name: 'Salary',
+      name: 'Exchange rate',
       data,
       color: '#3A9FBF',
     }],
     tooltip: {
       formatter() {
-        return `Salary at <b>${this.x}</b> is <b>${this.y.toFixed(2)} ${referenceCurrency}</b>.`;
+        return `<b>${this.x}</b>: 1 ${currencyFrom} = <b>${this.y.toFixed(4)} ${currencyTo}</b>`;
       },
+    },
+    legend: {
+      enabled: false,
     },
     chart: {
       height: `${((9 / 16) * 100)}%`,
+      backgroundColor: '#333333',
     },
   };
 };
 
 const ExchangeRateChart = ({
-  exchangeRates, salary, currency, referenceCurrency,
+  exchangeRates, currencyFrom, currencyTo,
 }) => {
-  const config = createConfig(exchangeRates, salary, currency, referenceCurrency);
+  const config = createConfig(exchangeRates, currencyFrom, currencyTo);
 
   return <ReactHighCharts config={config} />;
 };
@@ -47,16 +57,14 @@ ExchangeRateChart.propTypes = {
     date: PropTypes.string,
     totalAmountExchangeRate: PropTypes.number,
   })),
-  salary: PropTypes.number,
-  currency: PropTypes.string,
-  referenceCurrency: PropTypes.string,
+  currencyFrom: PropTypes.string,
+  currencyTo: PropTypes.string,
 };
 
 ExchangeRateChart.defaultProps = {
   exchangeRates: [],
-  salary: 0,
-  currency: '',
-  referenceCurrency: '',
+  currencyFrom: '',
+  currencyTo: '',
 };
 
 export default ExchangeRateChart;

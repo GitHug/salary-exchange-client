@@ -4,33 +4,35 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import HighChartsWrapper from './components/HighChartsWrapper';
 import './styles/Chart.css';
+import Card from '../../../../components/Card';
 
 const Chart = ({
   ...rest,
   data: { exchangeRates, loading },
 }) => (
-  <div className="Chart">
-    {loading ?
-      <span>Loading...</span>
-      : <HighChartsWrapper exchangeRates={exchangeRates} {...rest} />}
-  </div>
+  <Card className="Chart" cardClass="chart-card" loading={loading}>
+    <div>
+      {!loading &&
+      <HighChartsWrapper exchangeRates={exchangeRates} {...rest} />}
+    </div>
+  </Card>
 );
 
 const QUERY = gql`
   query exchangeRatesQuery(
     $period: Period!
-    $currency: String!
-    $referenceCurrency: String!
+    $currencyFrom: String!
+    $currencyTo: String!
     $amount: Float) {
       exchangeRates(
         period: $period,
-        currency: $currency,
-        referenceCurrency: $referenceCurrency,
+        currencyFrom: $currencyFrom,
+        currencyTo: $currencyTo,
         amount: $amount
       ) {
         date
-        currency
-        referenceCurrency
+        currencyFrom
+        currencyTo
         exchangeRate
         totalAmountExchangeRate
       }
@@ -41,8 +43,8 @@ Chart.propTypes = {
   data: PropTypes.shape({
     exchangeRates: PropTypes.arrayOf(PropTypes.shape({
       date: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-      referenceCurrency: PropTypes.string.isRequired,
+      currencyFrom: PropTypes.string.isRequired,
+      currencyTo: PropTypes.string.isRequired,
       exchangeRate: PropTypes.number.isRequired,
       totalAmountExchangeRate: PropTypes.number.isRequired,
     })),
@@ -51,15 +53,15 @@ Chart.propTypes = {
 
 export default graphql(QUERY, {
   options: ({
-    currency,
-    referenceCurrency,
+    currencyFrom,
+    currencyTo,
     salary,
     period,
   }) =>
     ({
       variables: {
-        currency,
-        referenceCurrency,
+        currencyFrom,
+        currencyTo,
         period,
         amount: salary || 1,
       },

@@ -1,0 +1,19 @@
+.Card {
+  background: #333333;
+  color: white;
+  padding: 0.5em;
+
+  h1.title {
+    font-weight: normal;
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .positive {
+    color: #4332BC;
+  }
+
+  .negative {
+    color: #B0261E;
+  }
+}
