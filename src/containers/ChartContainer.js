@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-import Chart from '../components/chart/components/Chart';
+import Chart from '../components/Chart';
 
 const QUERY = gql`
   query exchangeRatesQuery(
