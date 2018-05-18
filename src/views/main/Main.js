@@ -6,7 +6,7 @@ import ExchangeRateDifference from './components/buyingpower/ExchangeRateDiffere
 import './styles/Main.css';
 import LatestRate from './components/buyingpower/LatestRateContainer';
 import BuyingPower from './components/buyingpower/BuyingPowerContainer';
-import About from '../about/About';
+import About from '../../components/About';
 
 const Main = ({ location }) => (
   <section className="Main">

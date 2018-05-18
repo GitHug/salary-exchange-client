@@ -1,6 +1,6 @@
 import React from 'react';
-import './styles/About.css';
-import Card from '../../components/Card';
+import '../styles/About.css';
+import Card from './Card';
 
 export default () => (
   <Card className="About">
