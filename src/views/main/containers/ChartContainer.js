@@ -1,6 +1,28 @@
 import { connect } from 'react-redux';
-import Chart from '../components/chart/Chart';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import Chart from '../components/chart/components/Chart';
 
+const QUERY = gql`
+  query exchangeRatesQuery(
+    $period: Period!
+    $currencyFrom: String!
+    $currencyTo: String!
+    $amount: Float) {
+      exchangeRates(
+        period: $period,
+        currencyFrom: $currencyFrom,
+        currencyTo: $currencyTo,
+        amount: $amount
+      ) {
+        date
+        currencyFrom
+        currencyTo
+        exchangeRate
+        totalAmountExchangeRate
+      }
+    }
+`;
 
 const mapStateToProps = ({
   exchange: {
@@ -16,4 +38,19 @@ const mapStateToProps = ({
   period,
 });
 
-export default connect(mapStateToProps)(Chart);
+export default connect(mapStateToProps)(graphql(QUERY, {
+  options: ({
+    currencyFrom,
+    currencyTo,
+    salary,
+    period,
+  }) =>
+    ({
+      variables: {
+        currencyFrom,
+        currencyTo,
+        period,
+        amount: salary || 1,
+      },
+    }),
+})(Chart));

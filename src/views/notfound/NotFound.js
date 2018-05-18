@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../about/styles/About.css';
+import '../../../src/styles/About.css';
 
 export default () => (
   <div className="NotFound">

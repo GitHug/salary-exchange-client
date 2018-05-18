@@ -1,6 +1,20 @@
 import React from 'react';
 import ReactHighCharts from 'react-highcharts';
 import PropTypes from 'prop-types';
+import Card from '../../../../../components/Card';
+import '../styles/Chart.css';
+
+const Chart = ({
+  ...rest,
+  data: { error, exchangeRates, loading },
+}) => (
+  <Card className="Chart" cardClass="chart-card" loading={loading} error={error}>
+    <div className="full-width">
+      {!loading &&
+      <HighChartsWrapper exchangeRates={exchangeRates} {...rest} />}
+    </div>
+  </Card>
+);
 
 const createConfig = (exchangeRates, currencyFrom, currencyTo) => {
   const categories = exchangeRates.map(rate => rate.date);
@@ -43,7 +57,7 @@ const createConfig = (exchangeRates, currencyFrom, currencyTo) => {
   };
 };
 
-const ExchangeRateChart = ({
+const HighChartsWrapper = ({
   exchangeRates, currencyFrom, currencyTo,
 }) => {
   const config = createConfig(exchangeRates, currencyFrom, currencyTo);
@@ -51,7 +65,7 @@ const ExchangeRateChart = ({
   return <ReactHighCharts config={config} />;
 };
 
-ExchangeRateChart.propTypes = {
+HighChartsWrapper.propTypes = {
   exchangeRates: PropTypes.arrayOf(PropTypes.shape({
     date: PropTypes.string,
     totalAmountExchangeRate: PropTypes.number,
@@ -60,10 +74,22 @@ ExchangeRateChart.propTypes = {
   currencyTo: PropTypes.string,
 };
 
-ExchangeRateChart.defaultProps = {
+HighChartsWrapper.defaultProps = {
   exchangeRates: [],
   currencyFrom: '',
   currencyTo: '',
 };
 
-export default ExchangeRateChart;
+Chart.propTypes = {
+  data: PropTypes.shape({
+    exchangeRates: PropTypes.arrayOf(PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      currencyFrom: PropTypes.string.isRequired,
+      currencyTo: PropTypes.string.isRequired,
+      exchangeRate: PropTypes.number.isRequired,
+      totalAmountExchangeRate: PropTypes.number.isRequired,
+    })),
+  }).isRequired,
+};
+
+export default Chart;
