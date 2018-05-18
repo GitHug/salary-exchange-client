@@ -3,26 +3,27 @@ import PropTypes from 'prop-types';
 import Card from '../../../../components/Card';
 
 const BuyingPower = ({
-  data: { buyingPower, loading }, salary, currencyFrom, currencyTo,
+  data: { error, buyingPower, loading }, salary, currencyFrom, currencyTo,
 }) => (
   <Card
-    className="BuyingPowerPercentage"
     title="Buying power"
     loading={loading}
+    error={error}
   >
     <div>
       {!loading && buyingPower && (
       <div>
-        <p>
-          {salary} {currencyFrom} in {currencyTo}
-        </p>
-        <strong>
-          {(buyingPower.difference || {}).currentBuyingPower}
-        </strong>
-        <span>
-          Original buying power {(buyingPower.difference || {}).originalBuyingPower}
-          Since {(buyingPower.difference || {}).sinceDate}
-        </span>
+        <div className="flex-center">
+          <p>{salary} {currencyFrom} in {currencyTo} is</p>
+          <p>{(buyingPower.difference || {}).currentBuyingPower}</p>
+        </div>
+
+        <div className="flex-center-bottom">
+          <div className="flex-item-center">
+            <p>Original buying power {(buyingPower.difference || {}).originalBuyingPower}</p>
+            <p>Since {(buyingPower.difference || {}).sinceDate}</p>
+          </div>
+        </div>
       </div>
     )}
     </div>

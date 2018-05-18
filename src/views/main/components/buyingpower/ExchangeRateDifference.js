@@ -5,15 +5,15 @@ import Card from '../../../../components/Card';
 const getRatePercentage = buyingPower => ((buyingPower || {}).difference || {}).ratePercentage;
 const isPositive = buyingPower => getRatePercentage(buyingPower) >= 0;
 
-const ExchangeRateDifference = ({ data: { buyingPower, loading } }) => (
+const ExchangeRateDifference = ({ data: { error, buyingPower, loading } }) => (
   <Card
-    className="BuyingPowerPercentage"
     title="Difference"
     loading={loading}
+    error={error}
   >
-    <span className={isPositive(buyingPower) ? 'positive' : 'negative'}>
+    <p className={`main ${isPositive(buyingPower) ? 'positive' : 'negative'}`}>
       {getRatePercentage(buyingPower)}%
-    </span>
+    </p>
   </Card>
 );
 

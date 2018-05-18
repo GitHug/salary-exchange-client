@@ -8,10 +8,10 @@ import Card from '../../../../components/Card';
 
 const Chart = ({
   ...rest,
-  data: { exchangeRates, loading },
+  data: { error, exchangeRates, loading },
 }) => (
-  <Card className="Chart" cardClass="chart-card" loading={loading}>
-    <div>
+  <Card className="Chart" cardClass="chart-card" loading={loading} error={error}>
+    <div className="full-width">
       {!loading &&
       <HighChartsWrapper exchangeRates={exchangeRates} {...rest} />}
     </div>

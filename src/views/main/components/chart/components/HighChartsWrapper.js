@@ -38,7 +38,6 @@ const createConfig = (exchangeRates, currencyFrom, currencyTo) => {
       enabled: false,
     },
     chart: {
-      height: `${((9 / 16) * 100)}%`,
       backgroundColor: '#333333',
     },
   };

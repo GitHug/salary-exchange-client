@@ -9,10 +9,15 @@ import {
 
 import SalaryForm from '../components/controls/Controls';
 
-const mapStateToProps = ({ exchange: { currencyFrom, currencyTo, salary } }) => ({
+const mapStateToProps = ({
+  exchange: {
+    currencyFrom, currencyTo, salary, period,
+  },
+}) => ({
   currencyFrom,
   currencyTo,
   salary,
+  period,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

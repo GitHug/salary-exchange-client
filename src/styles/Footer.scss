@@ -1,0 +1,24 @@
+footer.Footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  grid-column: span 3;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 1.4em;
+  background-color: #333333;
+  color: #333333;
+  display: flex;
+  justify-content: flex-end;
+
+  div {
+    background: #409FBE;
+    padding: 0.25em;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

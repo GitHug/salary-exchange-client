@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '../../../../components/Card';
 
-const LatestRate = ({ data: { latestExchangeRate, loading } }) => (
+const LatestRate = ({ data: { error, latestExchangeRate, loading } }) => (
   <Card
-    className="LatestRate"
+    className="center"
     title="Latest rate"
     loading={loading}
+    error={error}
   >
-    <span>
+    <span className="main">
       {!loading && latestExchangeRate && (
         `1 ${latestExchangeRate.currencyFrom} = ${latestExchangeRate.exchangeRate.toFixed(2)} ${latestExchangeRate.currencyTo}`
       )}

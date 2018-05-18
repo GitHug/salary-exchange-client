@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Main from './views/main/Main';
 import About from './views/about/About';
 import NotFound from './views/notfound/NotFound';
+import Footer from './components/Footer';
 
 import './styles/App.css';
 
@@ -18,17 +19,7 @@ const App = () => (
       <Route path="/404" component={NotFound} />
       <Redirect from="*" to="/404" />
     </Switch>
-    <footer>
-      <a
-        href="https://github.com/GitHug/salary-exchange-client"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div>
-          <img src="GitHub-Mark-64px.png" alt="Github repo" />
-        </div>
-      </a>
-    </footer>
+    <Footer />
   </div>
 );
 

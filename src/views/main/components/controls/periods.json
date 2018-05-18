@@ -1,0 +1,26 @@
+[
+  {
+    "period": "ONE_MONTH",
+    "text": "1m"
+  },
+  {
+    "period": "THREE_MONTHS",
+    "text": "3m"
+  },
+  {
+    "period": "SIX_MONTHS",
+    "text": "6m"
+  },
+  {
+    "period": "ONE_YEAR",
+    "text": "1y"
+  },
+  {
+    "period": "THREE_YEARS",
+    "text": "3y"
+  },
+  {
+    "period": "ALL",
+    "text": "All"
+  }
+]

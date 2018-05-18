@@ -1,32 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RadioButton from './RadioButton';
 import '../styles/RadioButtonPanel.css';
+import periods from '../periods.json';
 
+const RadioButton = ({
+  name, id, checkedValue, onChange, children,
+}) => (
+  <label htmlFor={id} className="RadioButton">
+    <input
+      type="radio"
+      id={id}
+      name={name}
+      value={id}
+      checked={checkedValue === id}
+      onChange={() => onChange(id)}
+    />
+    <span>{children}</span>
+  </label>
+);
 
 const name = 'period';
 const RadioButtonPanel = ({ period, changePeriod }) => (
   <div className="RadioButtonPanel">
-    <RadioButton name={name} id="ONE_MONTH" checkedValue={period} onChange={changePeriod} >
-        1m
-    </RadioButton>
-    <RadioButton name={name} id="THREE_MONTHS" checkedValue={period} onChange={changePeriod}>
-        3m
-    </RadioButton>
-    <RadioButton name={name} id="SIX_MONTHS" checkedValue={period} onChange={changePeriod}>
-        6m
-    </RadioButton>
-    <RadioButton name={name} id="ONE_YEAR" checkedValue={period} onChange={changePeriod}>
-        1y
-    </RadioButton>
-    <RadioButton name={name} id="THREE_YEARS" checkedValue={period} onChange={changePeriod}>
-        3y
-    </RadioButton>
-    <RadioButton name={name} id="ALL" checkedValue={period} onChange={changePeriod}>
-        All
-    </RadioButton>
+    {periods.map(p => (
+      <RadioButton
+        key={p.period}
+        name={name}
+        id={p.period}
+        checkedValue={period}
+        onChange={changePeriod}
+      >
+        {p.text}
+      </RadioButton>
+      ))}
   </div>
 );
+
+RadioButton.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  checkedValue: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+};
+
+RadioButton.defaultProps = {
+  children: '',
+};
 
 RadioButtonPanel.propTypes = {
   period: PropTypes.string.isRequired,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import '../styles/CurrencySelect.css';
-import currencies from '../currencies';
+import currencies from '../currencies.json';
 
 const CurrencySelect = ({
   id, onChange, value, placeholder, disableValue,
@@ -16,6 +16,7 @@ const CurrencySelect = ({
     className="CurrencySelect"
     placeholder={placeholder}
     clearable={false}
+    searchable={false}
     options={currencies
       .filter(currency => currency.code !== disableValue)
       .map(currency =>
