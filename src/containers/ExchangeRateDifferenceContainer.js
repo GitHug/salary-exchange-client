@@ -1,7 +1,7 @@
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
-import BuyingPower from './BuyingPower';
+import ExchangeRateDifference from '../components/ExchangeRateDifference';
 
 const QUERY = gql`
   query buyingPowerQuery(
@@ -18,8 +18,7 @@ const QUERY = gql`
         amount: $amount
       ) {
         difference {
-          currentBuyingPower,
-          originalBuyingPower,
+          ratePercentage,
           sinceDate
         }
       }
@@ -55,4 +54,4 @@ export default connect(mapStateToProps)(graphql(QUERY, {
         amount: salary,
       },
     }),
-})(BuyingPower));
+})(ExchangeRateDifference));

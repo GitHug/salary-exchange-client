@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Chart from './containers/ChartContainer';
 import SalaryForm from './containers/ControlsContainer';
-import ExchangeRateDifference from './components/buyingpower/ExchangeRateDifferenceContainer';
-import './styles/Main.css';
-import LatestRate from './components/buyingpower/LatestRateContainer';
-import BuyingPower from './components/buyingpower/BuyingPowerContainer';
+import ExchangeRateDifference from '../../containers/ExchangeRateDifferenceContainer';
+import LatestRate from '../../containers/LatestRateContainer';
+import BuyingPower from '../../containers/BuyingPowerContainer';
 import About from '../../components/About';
+import './styles/Main.css';
 
 const Main = ({ location }) => (
   <section className="Main">

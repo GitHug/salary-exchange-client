@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../../../../components/Card';
+import Card from './Card';
 
 const BuyingPower = ({
   data: { error, buyingPower, loading }, salary, currencyFrom, currencyTo,

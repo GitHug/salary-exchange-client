@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../../../../components/Card';
+import Card from './Card';
 
 const getRatePercentage = buyingPower => ((buyingPower || {}).difference || {}).ratePercentage;
 const isPositive = buyingPower => getRatePercentage(buyingPower) >= 0;

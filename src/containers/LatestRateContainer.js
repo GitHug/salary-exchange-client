@@ -1,27 +1,23 @@
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
-import ExchangeRateDifference from './ExchangeRateDifference';
+import LatestRate from '../components/LatestRate';
 
 const QUERY = gql`
-  query buyingPowerQuery(
-    $period: Period,
-    $date: String,
+  query latestExchangeRateQuery(
     $currencyFrom: String!
-    $currencyTo: String!
-    $amount: Float) {
-      buyingPower(
-        period: $period,
-        date: $date,
+    $currencyTo: String!) {
+      latestExchangeRate(
         currencyFrom: $currencyFrom,
         currencyTo: $currencyTo,
-        amount: $amount
       ) {
-        difference {
-          ratePercentage,
-          sinceDate
+        date,
+        time,
+        timezone,
+        currencyFrom,
+        currencyTo,
+        exchangeRate
         }
-      }
     }
 `;
 
@@ -29,29 +25,21 @@ const mapStateToProps = ({
   exchange: {
     currencyFrom,
     currencyTo,
-    salary,
-    period,
   },
 }) => ({
   currencyFrom,
   currencyTo,
-  salary,
-  period,
 });
 
 export default connect(mapStateToProps)(graphql(QUERY, {
   options: ({
     currencyFrom,
     currencyTo,
-    salary,
-    period,
   }) =>
     ({
       variables: {
         currencyFrom,
         currencyTo,
-        period,
-        amount: salary,
       },
     }),
-})(ExchangeRateDifference));
+})(LatestRate));
