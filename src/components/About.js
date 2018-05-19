@@ -10,7 +10,7 @@ export default () => (
       <p>As someone who is currently living abroad, but still get the salary paid
       in the currency of my home country, it can be difficult to track the exchange rate
       and how the buying power fluctuates. This tool is provided for people in a similar
-      situation who might find this tool useful.
+      situation who might find it useful.
       </p>
 
       <p>Historical exchange rates is retrieved from the European Central Bank, who publish
