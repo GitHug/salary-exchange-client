@@ -19,7 +19,7 @@ const BuyingPower = ({
   data: { error, buyingPower, loading }, salary, currencyFrom, currencyTo,
 }) => (
   <Card
-    title="Buying power"
+    title="Buying Power"
     loading={loading}
     error={error}
   >

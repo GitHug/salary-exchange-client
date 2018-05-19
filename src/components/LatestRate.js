@@ -7,7 +7,7 @@ const formatTimeZone = timezone => timezone;
 
 const LatestRate = ({ data: { error, latestExchangeRate, loading } }) => (
   <Card
-    title="Latest rate"
+    title="Latest Rate"
     loading={loading}
     error={error}
   >
