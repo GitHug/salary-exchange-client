@@ -13,7 +13,7 @@ const getPolarityWord = (buyingPower) => {
 
   return {
     hasPolarity: polarityClass !== '',
-    polarity: polarityClass === 'positive' ? 'increased' : 'decreased',
+    positive: polarityClass === 'positive',
   };
 };
 
@@ -27,7 +27,7 @@ const ExchangeRateDifference = ({ data: { error, buyingPower, loading } }) => (
       <div className="content center">
         <span className="top">
           {getPolarityWord(buyingPower).hasPolarity && (
-            `Exchange rate has ${getPolarityWord(buyingPower).polarity}`
+            `Exchange rate has ${getPolarityWord(buyingPower).positive ? 'increased' : 'decreased'}`
           )}
         </span>
 
@@ -36,7 +36,7 @@ const ExchangeRateDifference = ({ data: { error, buyingPower, loading } }) => (
         </span>
 
         <span className="sub">
-            Since {getSinceDate(buyingPower)}
+            since {getSinceDate(buyingPower)}
         </span>
         <p className="updated">
           Updated: {getLatestDate(buyingPower)}

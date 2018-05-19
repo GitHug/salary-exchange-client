@@ -26,16 +26,17 @@ const BuyingPower = ({
     {isReady(loading, buyingPower) ? (
       <div className="content center">
         <span className="top">
-          {salary} {currencyFrom} in {currencyTo}:
+          {salary} {currencyFrom} is
         </span>
 
         <span className={`main ${getPositiveOrNegativeClass(buyingPower)}`}>
-          {getCurrentBuyingPower(buyingPower)}
+          {getCurrentBuyingPower(buyingPower)} {currencyTo}
         </span>
 
         <span className="sub">
-          {`Buying power on ${getDate(buyingPower)}: ${getOriginalBuyingPower(buyingPower)} ${currencyTo}`}
+          {`On ${getDate(buyingPower)} it was ${getOriginalBuyingPower(buyingPower)} ${currencyTo}`}
         </span>
+
         <p className="updated">
           Updated: {getLatestDate(buyingPower)}
         </p>
