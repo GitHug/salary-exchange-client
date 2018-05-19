@@ -19,10 +19,32 @@
   .content {
     display: flex;
     flex: 1 1 auto;
+    flex-direction: column;
 
     &.center {
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
+
+      .top, .sub, {
+        font-size: 0.75rem;
+      }
+
+      .updated {
+        font-weight: lighter;
+        align-self: flex-end;
+        font-size: 0.65rem;
+      }
+
+      .main {
+        align-self: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .sub {
+        align-content: flex-end;
+      }
     }
   }
 

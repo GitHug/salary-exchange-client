@@ -20,7 +20,8 @@ const QUERY = gql`
         difference {
           currentBuyingPower,
           originalBuyingPower,
-          sinceDate
+          sinceDate,
+          latestDate
         }
       }
     }

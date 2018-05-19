@@ -19,7 +19,8 @@ const QUERY = gql`
       ) {
         difference {
           ratePercentage,
-          sinceDate
+          sinceDate,
+          latestDate
         }
       }
     }

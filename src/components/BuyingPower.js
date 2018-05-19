@@ -1,6 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getPolarityClass } from '../utils/ExchangeRateUtils';
 import Card from './Card';
+
+const isReady = (loading, data) => !loading && data;
+const getDate = buyingPower => (buyingPower.difference || {}).sinceDate;
+const getLatestDate = buyingPower => (buyingPower.difference || {}).latestDate;
+const getCurrentBuyingPower = buyingPower => (buyingPower.difference || {}).currentBuyingPower;
+const getOriginalBuyingPower = buyingPower => (buyingPower.difference || {}).originalBuyingPower;
+const getPositiveOrNegativeClass = (buyingPower) => {
+  const currentBuyingPower = getCurrentBuyingPower(buyingPower);
+  const originalBuyingPower = getOriginalBuyingPower(buyingPower);
+
+  return getPolarityClass(currentBuyingPower, originalBuyingPower);
+};
 
 const BuyingPower = ({
   data: { error, buyingPower, loading }, salary, currencyFrom, currencyTo,
@@ -10,23 +23,23 @@ const BuyingPower = ({
     loading={loading}
     error={error}
   >
-    <div>
-      {!loading && buyingPower && (
-      <div>
-        <div className="flex-center">
-          <p>{salary} {currencyFrom} in {currencyTo} is</p>
-          <p>{(buyingPower.difference || {}).currentBuyingPower}</p>
-        </div>
+    {isReady(loading, buyingPower) ? (
+      <div className="content center">
+        <span className="top">
+          {salary} {currencyFrom} in {currencyTo}:
+        </span>
 
-        <div className="flex-center-bottom">
-          <div className="flex-item-center">
-            <p>Original buying power {(buyingPower.difference || {}).originalBuyingPower}</p>
-            <p>Since {(buyingPower.difference || {}).sinceDate}</p>
-          </div>
-        </div>
-      </div>
-    )}
-    </div>
+        <span className={`main ${getPositiveOrNegativeClass(buyingPower)}`}>
+          {getCurrentBuyingPower(buyingPower)}
+        </span>
+
+        <span className="sub">
+          {`Buying power on ${getDate(buyingPower)}: ${getOriginalBuyingPower(buyingPower)} ${currencyTo}`}
+        </span>
+        <p className="updated">
+          Updated: {getLatestDate(buyingPower)}
+        </p>
+      </div>) : <div />}
   </Card>
 );
 

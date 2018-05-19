@@ -1,9 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getPolarityClass, isReady } from '../utils/ExchangeRateUtils';
 import Card from './Card';
 
 const getRatePercentage = buyingPower => ((buyingPower || {}).difference || {}).ratePercentage;
-const isPositive = buyingPower => getRatePercentage(buyingPower) >= 0;
+const getSinceDate = buyingPower => ((buyingPower || {}).difference || {}).sinceDate;
+const getLatestDate = buyingPower => ((buyingPower || {}).difference || {}).latestDate;
+const getPositiveOrNegativeClass = buyingPower =>
+  getPolarityClass(getRatePercentage(buyingPower), 0);
+const getPolarityWord = (buyingPower) => {
+  const polarityClass = getPositiveOrNegativeClass(buyingPower);
+
+  return {
+    hasPolarity: polarityClass !== '',
+    polarity: polarityClass === 'positive' ? 'increased' : 'decreased',
+  };
+};
 
 const ExchangeRateDifference = ({ data: { error, buyingPower, loading } }) => (
   <Card
@@ -11,9 +23,27 @@ const ExchangeRateDifference = ({ data: { error, buyingPower, loading } }) => (
     loading={loading}
     error={error}
   >
-    <p className={`main ${isPositive(buyingPower) ? 'positive' : 'negative'}`}>
-      {getRatePercentage(buyingPower)}%
-    </p>
+    {isReady(loading, buyingPower) ? (
+      <div className="content center">
+        <span className="top">
+          {getPolarityWord(buyingPower).hasPolarity && (
+            `Exchange rate has ${getPolarityWord(buyingPower).polarity}`
+          )}
+        </span>
+
+        <span className={`main ${getPositiveOrNegativeClass(buyingPower)}`}>
+          {getRatePercentage(buyingPower)}%
+        </span>
+
+        <span className="sub">
+            Since {getSinceDate(buyingPower)}
+        </span>
+        <p className="updated">
+          Updated: {getLatestDate(buyingPower)}
+        </p>
+      </div>
+  ) : <div />
+  }
   </Card>
 );
 
