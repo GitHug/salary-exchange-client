@@ -3,8 +3,8 @@ import { Route, Redirect } from 'react-router';
 import { Switch } from 'react-router-dom';
 
 import Header from './components/Header';
-import Main from './views/main/Main';
-import NotFound from './views/notfound/NotFound';
+import Main from './views/Main';
+import NotFound from './views/NotFound';
 import Footer from './components/Footer';
 
 import './styles/App.css';
