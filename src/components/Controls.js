@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CurrencySelect from './components/CurrencySelect';
-import RadioButtonPanel from './containers/RadioButtonPanelContainer';
-import { history } from '../../../../store';
-import currencies from './currencies.json';
-import periods from './periods.json';
+import CurrencySelect from './CurrencySelect';
+import RadioButtonPanel from '../containers/RadioButtonPanelContainer';
+import Card from './Card';
+import { history } from '../store';
+import currencies from '../resources/currencies.json';
+import periods from '../resources/periods.json';
+import '../styles/Controls.css';
 
-import './styles/Controls.css';
-import Card from '../../../../components/Card';
 
 const validateNumber = param => !!(param && Number.parseInt(param, 10) < 1000000000);
 const validateCurrency = param => !!(param && currencies.find(curr => curr.code === param));
@@ -37,7 +37,7 @@ class Controls extends Component {
     const { search } = this.props.location;
     const params = new URLSearchParams(search);
 
-    const currencyFrom = params.get('currencyFrom'); // bar
+    const currencyFrom = params.get('currencyFrom');
     const currencyTo = params.get('currencyTo');
     const salary = params.get('salary');
     const period = params.get('period');

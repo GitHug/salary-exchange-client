@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { changePeriod } from '../../../../../actions/exchangeActions';
+import { changePeriod } from '../actions/exchangeActions';
 
 import RadioButtonPanel from '../components/RadioButtonPanel';
 

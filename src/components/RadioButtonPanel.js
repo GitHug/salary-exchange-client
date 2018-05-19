@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/RadioButtonPanel.css';
-import periods from '../periods.json';
+import periods from '../resources/periods.json';
 
 const RadioButton = ({
   name, id, checkedValue, onChange, children,

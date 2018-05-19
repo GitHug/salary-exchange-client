@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import '../styles/CurrencySelect.css';
-import currencies from '../currencies.json';
+import currencies from '../resources/currencies.json';
 
 const CurrencySelect = ({
   id, onChange, value, placeholder, disableValue,
